@@ -1,0 +1,87 @@
+[
+  {
+    "phone": [
+      {
+        "model": "iphone 10",
+        "id": 1679950092239,
+        "price": 500,
+        "memory": 128
+      },
+      {
+        "model": "iphone 10 XS",
+        "id": 1679950092239,
+        "price": 700,
+        "memory": 512
+      },
+      {
+        "model": "iphone 7",
+        "id": 1679950092239,
+        "price": 40,
+        "memory": 256
+      },
+      {
+        "name": "Tot",
+        "id": 1679950207240,
+        "price": 23
+      },
+      {
+        "name": "OOOOOO",
+        "id": 1679961571000,
+        "price": 78
+      },
+      {
+        "name": "uuuuu",
+        "id": 1679961667445,
+        "price": 2
+      }
+    ]
+  },
+  {
+    "tablet": [
+      {
+        "name": "Bob",
+        "id": 1679950092239,
+        "price": 40
+      },
+      {
+        "name": "Tot",
+        "id": 1679950207240,
+        "price": 23
+      },
+      {
+        "name": "OOOOOO",
+        "id": 1679961571000,
+        "price": 78
+      },
+      {
+        "name": "uuuuu",
+        "id": 1679961667445,
+        "price": 2
+      }
+    ]
+  },
+  {
+    "desktop": [
+      {
+        "name": "Bob",
+        "id": 1679950092239,
+        "price": 40
+      },
+      {
+        "name": "Tot",
+        "id": 1679950207240,
+        "price": 23
+      },
+      {
+        "name": "OOOOOO",
+        "id": 1679961571000,
+        "price": 78
+      },
+      {
+        "name": "uuuuu",
+        "id": 1679961667445,
+        "price": 2
+      }
+    ]
+  }
+]
