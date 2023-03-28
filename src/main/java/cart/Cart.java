@@ -14,10 +14,9 @@ public class Cart {
             product.getId(),
             product.getTitle(),
             product.getPrice(),
-            product.getDescription(),
+            product.getMemory(),
             product.getCategory(),
-            product.getImage(),
-            product.getRating()
+            product.getArticle()
         );
         if (products.size() < 1) {
             products.add(productCart);

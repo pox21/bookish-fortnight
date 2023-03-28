@@ -1,87 +1,90 @@
 [
   {
-    "phone": [
-      {
-        "model": "iphone 10",
-        "id": 1679950092239,
-        "price": 500,
-        "memory": 128
-      },
-      {
-        "model": "iphone 10 XS",
-        "id": 1679950092239,
-        "price": 700,
-        "memory": 512
-      },
-      {
-        "model": "iphone 7",
-        "id": 1679950092239,
-        "price": 40,
-        "memory": 256
-      },
-      {
-        "name": "Tot",
-        "id": 1679950207240,
-        "price": 23
-      },
-      {
-        "name": "OOOOOO",
-        "id": 1679961571000,
-        "price": 78
-      },
-      {
-        "name": "uuuuu",
-        "id": 1679961667445,
-        "price": 2
-      }
-    ]
+    "title": "iphone 10",
+    "id": 1679950092239,
+    "article" : 9234,
+    "price": 500,
+    "memory": "128GB",
+    "category": "Телефоны"
   },
   {
-    "tablet": [
-      {
-        "name": "Bob",
-        "id": 1679950092239,
-        "price": 40
-      },
-      {
-        "name": "Tot",
-        "id": 1679950207240,
-        "price": 23
-      },
-      {
-        "name": "OOOOOO",
-        "id": 1679961571000,
-        "price": 78
-      },
-      {
-        "name": "uuuuu",
-        "id": 1679961667445,
-        "price": 2
-      }
-    ]
+    "title": "iphone XS",
+    "id": 1679950092239,
+    "article" : 1234,
+    "price": 753,
+    "memory": "512GB",
+    "category": "Телефоны"
   },
   {
-    "desktop": [
-      {
-        "name": "Bob",
-        "id": 1679950092239,
-        "price": 40
-      },
-      {
-        "name": "Tot",
-        "id": 1679950207240,
-        "price": 23
-      },
-      {
-        "name": "OOOOOO",
-        "id": 1679961571000,
-        "price": 78
-      },
-      {
-        "name": "uuuuu",
-        "id": 1679961667445,
-        "price": 2
-      }
-    ]
+    "title": "iphone 8",
+    "id": 1679950092239,
+    "article" : 1235,
+    "price": 634,
+    "memory": "256GB",
+    "category": "Телефоны"
+  },
+  {
+    "title": "Galaxy Tab 10",
+    "id": 1679950092239,
+    "article" : 3234,
+    "price": 413,
+    "memory": "256GB",
+    "category": "Планшеты"
+  },
+  {
+    "title": "iPad 9",
+    "id": 1679950092239,
+    "article" : 1334,
+    "price": 578,
+    "memory": "512GB",
+    "category": "Планшеты"
+  },
+  {
+    "title": "MSI GP72",
+    "id": 1679950092239,
+    "article" : 1424,
+    "price": 912,
+    "memory": "1TB",
+    "category": "Компьютеры"
+  },
+  {
+    "title": "MacBook Air M1",
+    "id": 1679950092239,
+    "article" : 1424,
+    "price": 958,
+    "memory": "512GB",
+    "category": "Компьютеры"
+  },
+  {
+    "title": "MacBook Pro m1",
+    "id": 1679950092239,
+    "article" : 1473,
+    "price": 1245,
+    "memory": "512GB",
+    "category": "Компьютеры"
+  },
+  {
+    "title": "Asus ROG",
+    "id": 1679950092239,
+    "article" : 1479,
+    "price": 1640,
+    "memory": "1TB",
+    "category": "Компьютеры"
+  },
+  {
+    "title": "iPhone 12 PRO",
+    "id": 1679950092239,
+    "article" : 1279,
+    "price": 1134,
+    "memory": "256GB",
+    "category": "Телефоны"
+  },
+  {
+    "title": "iPad PRO m1",
+    "id": 1679950092239,
+    "article" : 3279,
+    "price": 1635,
+    "memory": "128GB",
+    "category": "Планшеты"
   }
 ]

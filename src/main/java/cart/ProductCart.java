@@ -1,14 +1,14 @@
 package cart;
 
 import product.Product;
-import product.Rating;
 
 public class ProductCart extends Product {
     private int amount = 1;
 
-    public ProductCart(int id, String title, double price, String description, String category, String image, Rating rating) {
-        super(id, title, price, description, category, image, rating);
+    public ProductCart(long id, String title, int price, String memory, String category, int article) {
+        super(title, id, price, memory, category, article);
     }
+
 
     public void setAmount(int amount) {
         this.amount = amount;
@@ -19,7 +19,7 @@ public class ProductCart extends Product {
     }
 
     @Override
-    public double getPrice() {
+    public int getPrice() {
         return this.price * this.amount;
     }
 
@@ -30,10 +30,8 @@ public class ProductCart extends Product {
                 ",\n\ttitle: '" + title + '\'' +
                 ",\n\tamount: " + amount +
                 ",\n\tprice: " + (price * amount) +
-                ",\n\tdescription: '" + description + '\'' +
+                ",\n\tdescription: '" + memory + '\'' +
                 ",\n\tcategory: '" + category + '\'' +
-                ",\n\timage: '" + image + '\'' +
-                ",\n\trating: " + rating + "\n" +
                 '}';
     }
 }

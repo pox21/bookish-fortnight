@@ -1,26 +1,28 @@
 package product;
 
 public class Product {
-    protected int id;
-    protected String title;
-    protected double price;
-    protected String description;
-    protected String category;
+    public String title;
+    public long id;
+    public int price;
+    public String memory;
+    public String category;
+    public int article;
 
-    public Product(int id, String title, double price, String description, String category) {
-        this.id = id;
+    public int getArticle() {
+        return article;
+    }
+
+    public void setArticle(int article) {
+        this.article = article;
+    }
+
+    public Product(String title, long id, int price, String memory, String category, int article) {
         this.title = title;
-        this.price = price;
-        this.description = description;
-        this.category = category;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
         this.id = id;
+        this.price = price;
+        this.memory = memory;
+        this.category = category;
+        this.article = article;
     }
 
     public String getTitle() {
@@ -31,20 +33,28 @@ public class Product {
         this.title = title;
     }
 
-    public double getPrice() {
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
-    public String getDescription() {
-        return description;
+    public String getMemory() {
+        return memory;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setMemory(String memory) {
+        this.memory = memory;
     }
 
     public String getCategory() {
@@ -57,12 +67,12 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product {" +
-                "\n\tid: " + id +
-                ",\n\ttitle: '" + title + '\'' +
-                ",\n\tprice: " + price +
-                ",\n\tdescription: '" + description + '\'' +
-                ",\n\tcategory: '" + category + '\'' + "\n" +
+        return "{ " +
+                "title = '" + title + '\'' +
+                ", id = " + id +
+                ", price = " + price +
+                ", memory = '" + memory + '\'' +
+                ", category = '" + category + '\'' +
                 '}';
     }
 }
