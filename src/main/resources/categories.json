@@ -1,15 +1,15 @@
 [
   {
     "id": 1,
-    "title": "Телефоны"
+    "title": "PHONE"
   },
   {
     "id": 2,
-    "title": "Планшеты"
+    "title": "TABLET"
   },
   {
     "id": 3,
-    "title": "Компьютеры"
+    "title": "COMPUTER"
   }
 ]
 

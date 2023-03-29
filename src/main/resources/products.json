@@ -5,7 +5,7 @@
     "article" : 1001,
     "price": 500,
     "memory": "128GB",
-    "category": "Телефоны"
+    "category": "PHONE"
   },
   {
     "title": "iphone XS",
@@ -13,7 +13,7 @@
     "article" : 1002,
     "price": 753,
     "memory": "512GB",
-    "category": "Телефоны"
+    "category": "PHONE"
   },
   {
     "title": "iphone 8",
@@ -21,7 +21,7 @@
     "article" : 1003,
     "price": 634,
     "memory": "256GB",
-    "category": "Телефоны"
+    "category": "PHONE"
   },
   {
     "title": "Galaxy Tab 10",
@@ -29,7 +29,7 @@
     "article" : 2001,
     "price": 413,
     "memory": "256GB",
-    "category": "Планшеты"
+    "category": "TABLET"
   },
   {
     "title": "iPad 9",
@@ -37,15 +37,15 @@
     "article" : 2002,
     "price": 578,
     "memory": "512GB",
-    "category": "Планшеты"
+    "category": "TABLET"
   },
   {
-    "title": "MSI GP72",
+    "title": "MacBook Pro M1",
     "id": 1679950092239,
     "article" : 3001,
     "price": 912,
     "memory": "1TB",
-    "category": "Компьютеры"
+    "category": "COMPUTER"
   },
   {
     "title": "MacBook Air M1",
@@ -53,7 +53,7 @@
     "article" : 3002,
     "price": 958,
     "memory": "512GB",
-    "category": "Компьютеры"
+    "category": "COMPUTER"
   },
   {
     "title": "MacBook Pro m1",
