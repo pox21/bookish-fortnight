@@ -58,23 +58,23 @@
   {
     "title": "MacBook Pro m1",
     "id": 1679950092239,
-    "article" : 1473,
-    "price": 3003,
+    "article" : 3003,
+    "price": 1456,
     "memory": "512GB",
     "category": "Компьютеры"
   },
   {
     "title": "Asus ROG",
     "id": 1679950092239,
-    "article" : 1479,
-    "price": 3004,
+    "article" : 3004,
+    "price": 1679,
     "memory": "1TB",
     "category": "Компьютеры"
   },
   {
     "title": "iPhone 12 PRO",
     "id": 1679950092239,
-    "article" : 1279,
+    "article" : 1004,
     "price": 1004,
     "memory": "256GB",
     "category": "Телефоны"
