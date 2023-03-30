@@ -51,6 +51,7 @@ public class MyShoppingCart {
     for (Product p : selectedProduct) {
       System.out.print(count + ". ");
       System.out.println(p);
+      count++;
     }
 
 
