@@ -1,5 +1,4 @@
 package Products;
-import java.util.Collections;
 import parser.GsonParser;
 import product.Category;
 import product.Product;
@@ -83,6 +82,7 @@ public class Products {
           getMySelectProducts(products);
           return;
         }
+
       }while (addMore);
 
       getMyProduct(myProducts);
@@ -113,7 +113,7 @@ public class Products {
 
       choice = br.readLine();
       if(choice.equalsIgnoreCase("N")) {
-        getMySelectProducts(products);
+        showProductsByCategory(category);
       }
       else if (choice.equalsIgnoreCase("Y")){
         System.out.println();
@@ -125,19 +125,23 @@ public class Products {
         int sortChoice = Integer.parseInt(br.readLine());
         switch (sortChoice){
           case 1:
-            Collections.sort(products, new ProductIncreasingPriceDecreasingMemoryComparator());
+            assert products != null;
+            products.sort(new ProductIncreasingPriceDecreasingMemoryComparator());
             showProductsByCategory(category);
             break;
           case 2:
-            Collections.sort(products, new ProductDecreasingPriceDecreasingMemoryComparator());
+            assert products != null;
+            products.sort(new ProductDecreasingPriceDecreasingMemoryComparator());
             showProductsByCategory(category);
             break;
           case 3:
-            Collections.sort(products, new ProductDecreasingMemoryIncreasingPriceComparator());
+            assert products != null;
+            products.sort(new ProductDecreasingMemoryIncreasingPriceComparator());
             showProductsByCategory(category);
             break;
           case 4:
-            Collections.sort(products, new ProductIncreasingTitleIncreasingPriceComparator());
+            assert products != null;
+            products.sort(new ProductIncreasingTitleIncreasingPriceComparator());
             showProductsByCategory(category);
             break;
         }
