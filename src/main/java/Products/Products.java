@@ -51,7 +51,7 @@ public class Products {
           boolean article = product.getArticle() == select;
 
           if (article){
-            System.out.print("Хотите купить: "+product.getTitle() + ".  Введите количество: "  );
+            System.out.print("Хотите купить: " + product.getTitle() + "? Введите количество: "  );
 
             do {
               quantities = Integer.parseInt(br.readLine());
@@ -62,16 +62,16 @@ public class Products {
                 myProducts.put("MY-DEVICE",selectedProduct);
               }
               else{
-                System.out.print("Хотите купить: "+product.getTitle() +".  Введите количество больше 0 : "  );
+                System.out.print("Хотите купить: " + product.getTitle() +"? Введите количество больше 0: "  );
               }
             }while (quantities == 0 || quantities < 0);
           }
         }
-        System.out.print("Хотите добавить еще товар? Нажмите Y/N: ");
+        System.out.print("Хотите добавить еще товар из данной категории? Нажмите Y/N: ");
         String yOrN = br.readLine();
 
         if(yOrN.equalsIgnoreCase("N")){
-          System.out.print(" Хотите вернуться к категориям товаров Y/N ?: ");
+          System.out.print(" Хотите вернуться к категориям товаров? Нажмите Y/N: ");
           String yOrNCategory = br.readLine();
           if(yOrNCategory.equalsIgnoreCase("Y")){
             fill(categories);
@@ -84,7 +84,7 @@ public class Products {
         }
       }while (addMore);
 
-      getMyProduct(myProducts);
+      getMyProduct(selectedProduct);
 
     } catch (IOException e) {
       throw new RuntimeException(e);
