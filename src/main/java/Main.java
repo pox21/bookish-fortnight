@@ -12,5 +12,11 @@ public class Main {
         assert categories != null;
         ChoseCategory.fill(categories);
 
+        System.out.printf(
+            "%sHello%s %sworld%s %s!%s",
+            Colors.YELLOW.getColor(), Colors.RESET.getColor(),
+            Colors.CYAN.getColor(), Colors.RESET.getColor(),
+            Colors.PURPLE.getColor(), Colors.RESET.getColor()
+        );
     }
 }
