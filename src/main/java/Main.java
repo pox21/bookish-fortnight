@@ -1,6 +1,8 @@
 import chooseCategory.ChoseCategory;
 import parser.GsonParser;
 import product.Category;
+import utils.Colors;
+
 import java.util.*;
 
 public class Main {
@@ -12,11 +14,11 @@ public class Main {
         assert categories != null;
         ChoseCategory.fill(categories);
 
-        System.out.printf(
-            "%sHello%s %sworld%s %s!%s",
-            Colors.YELLOW.getColor(), Colors.RESET.getColor(),
-            Colors.CYAN.getColor(), Colors.RESET.getColor(),
-            Colors.PURPLE.getColor(), Colors.RESET.getColor()
-        );
+//        System.out.printf(
+//            "%sHello%s %sworld%s %s!%s",
+//            Colors.YELLOW.getColor(), Colors.RESET.getColor(),
+//            Colors.CYAN.getColor(), Colors.RESET.getColor(),
+//            Colors.PURPLE.getColor(), Colors.RESET.getColor()
+//        );
     }
 }

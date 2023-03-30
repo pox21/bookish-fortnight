@@ -2,11 +2,14 @@ package product;
 
 public class Category {
     private int id;
-    private String title;
 
-    public Category(int id, String title) {
+    private String title;
+    private String icon;
+
+    public Category(int id, String title,String icon) {
         this.id = id;
         this.title = title;
+        this.icon = icon;
     }
 
     public int getId() {
@@ -25,11 +28,22 @@ public class Category {
         this.title = title;
     }
 
+
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
     @Override
     public String toString() {
-        return "Category { " +
-                "id = " + id +
-                ", title = '" + title + '\'' +
+        return "Category{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", icon='" + icon + '\'' +
                 '}';
     }
 }

@@ -1,3 +1,5 @@
+package utils;
+
 public enum Colors {
         RESET("\u001B[0m"),
         BLACK("\u001B[30m"),

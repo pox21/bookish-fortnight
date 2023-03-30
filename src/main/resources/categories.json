@@ -1,15 +1,18 @@
 [
   {
     "id": 1,
-    "title": "PHONE"
+    "title": "PHONE",
+    "icon": "\uD83D\uDCF1"
   },
   {
     "id": 2,
-    "title": "TABLET"
+    "title": "TABLET",
+    "icon": "\uD83D\uDCF2"
   },
   {
     "id": 3,
-    "title": "COMPUTER"
+    "title": "COMPUTER",
+    "icon": "\uD83D\uDDA5"
   }
 ]
 
