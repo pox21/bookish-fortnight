@@ -23,13 +23,19 @@ public class ChoseCategory {
   // Выводим категории в консоль
   public static void fill(List<Category> categories) {
 
-      System.out.print(" ");
-      System.out.println(yellow+"       DEVICE STORE           == Наименование == "+ reset );
-    for (Category category : categories) {
-      System.out.print(cyan+"    Kатегории товара : "+reset);
-      System.out.println("Нажмите "+cyan+category.getId()+" -> "+green + category.getTitle()+reset+" "+ category.getIcon());
-      categoryProducts.put(category.getId(),category.getTitle());
-    }
+      System.out.println(" ");
+      System.out.printf("%s%11sDEVICE STORE%11s%s%n", Colors.YELLOW.getColor(), "", "", Colors.RESET.getColor());
+      System.out.printf("%s%8s== Наименование ==%8s%s%n", Colors.PURPLE.getColor(), "", "", Colors.RESET.getColor());
+      System.out.printf("%s%s%s%n", Colors.CYAN.getColor(), "-".repeat(30), Colors.RESET.getColor());
+      for (Category category : categories) {
+          System.out.printf(
+              "%s%d%s: %s- %s -%s %n",
+              Colors.RED.getColor(), category.getId(), Colors.RESET.getColor(),
+              Colors.BLUE.getColor(), category.getTitle(), Colors.RESET.getColor()
+          );
+        categoryProducts.put(category.getId(), category.getTitle());
+      }
+      System.out.printf("%s%s%s%n", Colors.CYAN.getColor(), "-".repeat(30), Colors.RESET.getColor());
     try {
       addOurCategory();
     } catch (IOException e) {
@@ -39,7 +45,7 @@ public class ChoseCategory {
   public static void addOurCategory() throws IOException {
     // получаем категорию
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    System.out.print(green+"    Введите категорию товара : "+reset);
+    System.out.printf("%sВыберите категорию: %s", Colors.GREEN.getColor(), Colors.RESET.getColor());
     int select = 0;
     try {
       select = Integer.parseInt(br.readLine());
