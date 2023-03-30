@@ -17,7 +17,8 @@ public class GsonParser {
         Gson gson = new Gson();
 
         try (FileReader reader = new FileReader(filePath)) {
-            return gson.fromJson(reader, new TypeToken<ArrayList<Product>>() {}.getType());
+            return gson.fromJson(reader, new TypeToken<ArrayList<Product>>() {
+            }.getType());
         } catch (Exception e) {
             System.out.println("Parsing error " + e.getMessage());
         }
@@ -30,7 +31,8 @@ public class GsonParser {
         Gson gson = new Gson();
 
         try (FileReader reader = new FileReader(filePath)) {
-            return gson.fromJson(reader, new TypeToken<ArrayList<Category>>() {}.getType());
+            return gson.fromJson(reader, new TypeToken<ArrayList<Category>>() {
+            }.getType());
         } catch (Exception e) {
             System.out.println("Parsing error " + e.getMessage());
         }
@@ -43,7 +45,8 @@ public class GsonParser {
         Gson gson = new Gson();
 
         try (FileReader reader = new FileReader(filePath)) {
-            return gson.fromJson(reader, new TypeToken<ArrayList<User>>() {}.getType());
+            return gson.fromJson(reader, new TypeToken<ArrayList<User>>() {
+            }.getType());
         } catch (Exception e) {
             System.out.println("Parsing error " + e.getMessage());
         }

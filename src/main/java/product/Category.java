@@ -6,7 +6,7 @@ public class Category {
     private String title;
     private String icon;
 
-    public Category(int id, String title,String icon) {
+    public Category(int id, String title, String icon) {
         this.id = id;
         this.title = title;
         this.icon = icon;
@@ -27,7 +27,6 @@ public class Category {
     public void setTitle(String title) {
         this.title = title;
     }
-
 
 
     public String getIcon() {

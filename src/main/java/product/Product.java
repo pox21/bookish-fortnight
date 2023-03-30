@@ -1,12 +1,12 @@
 package product;
 
 public class Product {
-    public String title;
-    public long id;
-    public int price;
-    public String memory;
-    public String category;
-    public int article;
+    protected String title;
+    protected long id;
+    protected int price;
+    protected String memory;
+    protected String category;
+    protected int article;
 
     public int getArticle() {
         return article;

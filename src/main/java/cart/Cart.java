@@ -11,12 +11,12 @@ public class Cart {
 
     public void addProductToCart(Product product) {
         ProductCart productCart = new ProductCart(
-            product.getId(),
-            product.getTitle(),
-            product.getPrice(),
-            product.getMemory(),
-            product.getCategory(),
-            product.getArticle()
+                product.getId(),
+                product.getTitle(),
+                product.getPrice(),
+                product.getMemory(),
+                product.getCategory(),
+                product.getArticle()
         );
         if (products.size() < 1) {
             products.add(productCart);
