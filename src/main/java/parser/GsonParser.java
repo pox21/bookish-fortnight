@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import product.Category;
 import product.Product;
+import user.User;
 
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -30,6 +31,19 @@ public class GsonParser {
 
         try (FileReader reader = new FileReader(filePath)) {
             return gson.fromJson(reader, new TypeToken<ArrayList<Category>>() {}.getType());
+        } catch (Exception e) {
+            System.out.println("Parsing error " + e.getMessage());
+        }
+
+        return null;
+    }
+
+    public static List<User> parseUsers(String filePath) {
+
+        Gson gson = new Gson();
+
+        try (FileReader reader = new FileReader(filePath)) {
+            return gson.fromJson(reader, new TypeToken<ArrayList<User>>() {}.getType());
         } catch (Exception e) {
             System.out.println("Parsing error " + e.getMessage());
         }
