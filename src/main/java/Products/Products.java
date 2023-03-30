@@ -101,7 +101,7 @@ public class Products {
       choice = br.readLine();
       if(choice.equalsIgnoreCase("N")) {
         assert products != null;
-        getMySelectProducts(products);
+        showProductsByCategory(category);
       }
       else if (choice.equalsIgnoreCase("Y")){
         System.out.println();
