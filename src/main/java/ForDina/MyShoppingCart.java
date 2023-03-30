@@ -1,5 +1,6 @@
 package ForDina;
 
+import cart.Cart;
 import product.Product;
 import Products.Products;
 import utils.Colors;
@@ -9,7 +10,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 
+import static order.Order.confirmOrder;
+
 public class MyShoppingCart {
+    static Cart cart = new Cart();
 
     public static void getMyProduct(List<Product> selectedProduct) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -18,11 +22,12 @@ public class MyShoppingCart {
         System.out.print("Хотите удалить все товары из корзины? Нажмите Y/N: ");
         String s = br.readLine();
         if (s.equalsIgnoreCase("Y")) {
-            selectedProduct.removeAll(selectedProduct);
+            selectedProduct.clear();
             printCart(selectedProduct);
+            cart.addProductToCart(selectedProduct);
         }
 
-        if (selectedProduct.size() > 1) removeFromCart(selectedProduct);
+        if (selectedProduct.size() > 0) removeFromCart(selectedProduct);
     }
 
     public static void printCart(List<Product> selectedProduct) {
@@ -52,6 +57,7 @@ public class MyShoppingCart {
                     int select = Integer.parseInt(br.readLine());
                     selectedProduct.remove(selectedProduct.get(select - 1));
                     printCart(selectedProduct);
+                    cart.addProductToCart(selectedProduct);
                 } catch (IndexOutOfBoundsException e) {
                     System.out.println("Введите корректное значение!");
                 }
@@ -59,6 +65,8 @@ public class MyShoppingCart {
             }
             if (yOrN.equalsIgnoreCase("N")) {
                 printCart(selectedProduct);
+                cart.addProductToCart(selectedProduct);
+                confirmOrder(cart.products);
                 break;
             }
         } while (selectedProduct.size() > 0);

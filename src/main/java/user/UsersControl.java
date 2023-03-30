@@ -58,5 +58,20 @@ public class UsersControl {
         return null;
     }
 
+    public boolean authorization(String email, String pass) {
+        User user = getUserByEmail(email);
+        if (user == null || !user.getPassword().equals(pass)) {
+            System.out.println("Неверный логин или пароль");
+            return false;
+        }
+        User authUser = login(email, pass);
+        return authUser != null;
+    }
+
+    public void updateUserData(User user) {
+        users.add(user);
+        gsonToJson.addUsersToJson(users, pathToUsers);
+    }
+
 
 }

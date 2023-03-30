@@ -2,6 +2,7 @@ package cart;
 
 
 import product.Product;
+import utils.Colors;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,25 +10,27 @@ import java.util.List;
 public class Cart {
     public List<ProductCart> products = new ArrayList<>();
 
-    public void addProductToCart(Product product) {
-        ProductCart productCart = new ProductCart(
-                product.getId(),
-                product.getTitle(),
-                product.getPrice(),
-                product.getMemory(),
-                product.getCategory(),
-                product.getArticle()
-        );
-        if (products.size() < 1) {
-            products.add(productCart);
-        } else {
-            for (ProductCart p : products) {
-                if (product.getId() == p.getId()) {
-                    p.setAmount(p.getAmount() + 1);
-                    return;
+    public void addProductToCart(List<Product> selectedProducts) {
+        for (Product product : selectedProducts) {
+            ProductCart productCart = new ProductCart(
+                    product.getId(),
+                    product.getTitle(),
+                    product.getPrice(),
+                    product.getMemory(),
+                    product.getCategory(),
+                    product.getArticle()
+            );
+            boolean isAdded = false;
+            for (ProductCart cart : products) {
+                if (cart.getId() == product.getId()) {
+                    cart.setAmount(cart.getAmount() + 1);
+                    isAdded = true;
                 }
             }
-            products.add(productCart);
+            if (!isAdded) {
+                products.add(productCart);
+            }
+            isAdded = false;
         }
     }
 
@@ -35,5 +38,8 @@ public class Cart {
         products.remove(product);
     }
 
+    public void removeProducts() {
+        products.clear();
+    }
 
 }

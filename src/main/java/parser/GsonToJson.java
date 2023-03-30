@@ -21,6 +21,7 @@ public class GsonToJson {
     public void addUsersToJson(List<User> users, String filePath) {
         Gson gson = new Gson();
         try (FileWriter fileWrite = new FileWriter(filePath)) {
+
             gson.toJson(users, fileWrite);
 
         } catch (Exception e) {

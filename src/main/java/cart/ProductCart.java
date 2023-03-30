@@ -3,7 +3,7 @@ package cart;
 import product.Product;
 
 public class ProductCart extends Product {
-    private int amount = 1;
+    protected int amount = 1;
 
     public ProductCart(long id, String title, int price, String memory, String category, int article) {
         super(title, id, price, memory, category, article);

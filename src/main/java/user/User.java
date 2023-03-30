@@ -2,14 +2,9 @@ package user;
 
 import cart.ProductCart;
 import exceptions.NewIllegalException;
-import product.Product;
 
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.PBEKeySpec;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import java.security.spec.KeySpec;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class User {
@@ -18,10 +13,9 @@ public class User {
 
     private String password;
 
-    private List<ProductCart> orders;
+    private List<ProductCart> orders = new ArrayList<>();
 
     private boolean admin = false;
-
 
     public User(String name, String email, String password) {
         if (email == null || email.isEmpty() || password == null || password.isEmpty()) {
@@ -69,15 +63,26 @@ public class User {
     }
 
     public void setOrders(List<ProductCart> orders) {
-        this.orders = orders;
+        this.orders = merge(this.orders, orders);
     }
+
+    public static<T> List<T> merge(List<T> list1, List<T> list2)
+    {
+        List<T> list = new ArrayList<>();
+
+        list.addAll(list1);
+        list.addAll(list2);
+
+        return list;
+    }
+
 
     @Override
     public String toString() {
         return "User {" +
                 "name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", orders='" + orders.size() + '\'' +
+                ", orders=" + orders.toString() + "" +
                 ", admin=" + admin +
                 '}';
     }

@@ -8,20 +8,20 @@ public class Product {
     protected String category;
     protected int article;
 
-    public int getArticle() {
-        return article;
-    }
-
-    public void setArticle(int article) {
-        this.article = article;
-    }
-
     public Product(String title, long id, int price, String memory, String category, int article) {
         this.title = title;
         this.id = id;
         this.price = price;
         this.memory = memory;
         this.category = category;
+        this.article = article;
+    }
+
+    public int getArticle() {
+        return article;
+    }
+
+    public void setArticle(int article) {
         this.article = article;
     }
 
