@@ -1,5 +1,4 @@
 package Products;
-import java.util.Collections;
 import parser.GsonParser;
 import product.Category;
 import product.Product;
@@ -21,7 +20,6 @@ import static chooseCategory.ChoseCategory.fill;
 
 public class Products {
   static List<Category> categories = GsonParser.parseCategories("src/main/resources/categories.json");
-
   private static  int quantities = 1;
   private static final List<Product> products =  GsonParser.parseProducts("src/main/resources/products.json");
   private static final Map<String,List<Product>> myProducts = new HashMap<>();
@@ -35,6 +33,7 @@ public class Products {
     System.out.print("Введите 'Y', если 'да' или N, если 'нет': ");
 
     sortProducts(category); // сортирует товары
+    assert products != null;
     getMySelectProducts(products);
   }
 
@@ -91,7 +90,56 @@ public class Products {
       throw new RuntimeException(e);
     }
   }
-  public static void showProductsByCategory(String category) throws IOException{
+
+
+  public static void sortProducts(String category) throws IOException {
+    String choice = null;
+    do {
+      BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+
+      choice = br.readLine();
+      if(choice.equalsIgnoreCase("N")) {
+        assert products != null;
+        getMySelectProducts(products);
+      }
+      else if (choice.equalsIgnoreCase("Y")){
+        System.out.println();
+        System.out.println("Сортировка по возрастанию цены, нажмите 1: ");
+        System.out.println("Сортировка по убыванию цены, нажмите 2: ");
+        System.out.println("Сортировка по уменьшению объема памяти, нажмите 3: ");
+        System.out.println("Сортировка по названию, нажмите 4: ");
+        System.out.print("Сортировка введите число : ");
+        int sortChoice = Integer.parseInt(br.readLine());
+        switch (sortChoice) {
+          case 1 -> {
+            assert products != null;
+            products.sort(new ProductIncreasingPriceDecreasingMemoryComparator());
+            showProductsByCategory(category);
+          }
+          case 2 -> {
+            assert products != null;
+            products.sort(new ProductDecreasingPriceDecreasingMemoryComparator());
+            showProductsByCategory(category);
+          }
+          case 3 -> {
+            assert products != null;
+            products.sort(new ProductDecreasingMemoryIncreasingPriceComparator());
+            showProductsByCategory(category);
+          }
+          case 4 -> {
+            assert products != null;
+            products.sort(new ProductIncreasingTitleIncreasingPriceComparator());
+            showProductsByCategory(category);
+          }
+        }
+      } else {
+        System.out.print("Введите 'Y', если 'да' или N, если 'нет': ");
+      }
+    }
+     while (!choice.equalsIgnoreCase("Y") && !choice.equalsIgnoreCase("N"));
+  }
+  public static void showProductsByCategory(String category) {
     System.out.println("-".repeat(43));
     System.out.printf("%7s | %15s | %6s | %6s%n", "Артикул", "Наименование", "Память", "Цена");
     System.out.println("-".repeat(43));
@@ -105,56 +153,7 @@ public class Products {
       }
     }
   }
-
-  public static void sortProducts(String category) throws IOException {
-    String choice = null;
-    do {
-      BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-      choice = br.readLine();
-      if(choice.equalsIgnoreCase("N")) {
-        getMySelectProducts(products);
-      }
-      else if (choice.equalsIgnoreCase("Y")){
-        System.out.println();
-        System.out.println("Сортировка по возрастанию цены, нажмите 1: ");
-        System.out.println("Сортировка по убыванию цены, нажмите 2: ");
-        System.out.println("Сортировка по уменьшению объема памяти, нажмите 3: ");
-        System.out.println("Сортировка по названию, нажмите 4: ");
-
-        int sortChoice = Integer.parseInt(br.readLine());
-        switch (sortChoice){
-          case 1:
-            Collections.sort(products, new ProductIncreasingPriceDecreasingMemoryComparator());
-            showProductsByCategory(category);
-            break;
-          case 2:
-            Collections.sort(products, new ProductDecreasingPriceDecreasingMemoryComparator());
-            showProductsByCategory(category);
-            break;
-          case 3:
-            Collections.sort(products, new ProductDecreasingMemoryIncreasingPriceComparator());
-            showProductsByCategory(category);
-            break;
-          case 4:
-            Collections.sort(products, new ProductIncreasingTitleIncreasingPriceComparator());
-            showProductsByCategory(category);
-            break;
-        }
-      } else {
-        System.out.print("Введите 'Y', если 'да' или N, если 'нет': ");
-      }
-    }
-     while (!choice.equalsIgnoreCase("Y") && !choice.equalsIgnoreCase("N"));
-  }
 }
 
-
-//  public static void DDDD() {
-//
-//    System.out.println("data = " + myProducts);
-//
-//
-//  }
 
 
