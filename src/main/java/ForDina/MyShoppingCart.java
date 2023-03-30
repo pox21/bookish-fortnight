@@ -10,10 +10,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 
-import static order.Order.confirmOrder;
-
 public class MyShoppingCart {
-    static Cart cart = new Cart();
 
     public static void getMyProduct(List<Product> selectedProduct) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -40,8 +37,8 @@ public class MyShoppingCart {
         if (selectedProduct.size() == 0) {
             System.out.println("Ваша корзина пуста");
         } else {
-            System.out.println("В вашей корзине: " + selectedProduct.size() + " " + getGoodsAddition(selectedProduct.size()) + ", на сумму: " + sum + " €");
-            Products.showProductsCart(selectedProduct);
+            System.out.println(colorCyan+"В вашей корзине: "+Colors.PURPLE.getColor() + selectedProduct.size() + " " + getGoodsAddition(selectedProduct.size()) +colorCyan+ ", на сумму: "+Colors.GREEN.getColor() + sum + " €" + colorReset);
+            showProductsCart(selectedProduct);
         }
     }
 
@@ -59,7 +56,7 @@ public class MyShoppingCart {
                     printCart(selectedProduct);
                     cart.addProductToCart(selectedProduct);
                 } catch (IndexOutOfBoundsException e) {
-                    System.out.println("Введите корректное значение!");
+                    System.out.println(colorRed+"Введите корректное значение!"+colorReset);
                 }
 
             }

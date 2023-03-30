@@ -1,6 +1,7 @@
+
 package chooseCategory;
 
-import MyError.MyIOException;
+import exceptions.MyIOException;
 import product.Category;
 import Products.Products;
 import utils.Colors;
@@ -14,30 +15,30 @@ import java.util.List;
 import java.util.Map;
 
 public class ChoseCategory {
-    private static final String reset = Colors.RESET.getColor();
-    private static final String yellow = Colors.YELLOW.getColor();
-    private static final String cyan = Colors.CYAN.getColor();
-    private static final String red = Colors.RED.getColor();
-    private static final String green = Colors.GREEN.getColor();
+    static String colorReset = Colors.RESET.getColor();
+    static String colorYellow = Colors.YELLOW.getColor();
+    static String colorCyan = Colors.CYAN.getColor();
+    static String colorRed = Colors.RED.getColor();
+    static String colorPurple = Colors.PURPLE.getColor();
     private static final Map<Integer, String> categoryProducts = new HashMap<>();
 
     // Выводим категории в консоль
     public static void fill(List<Category> categories) {
 
         System.out.println(" ");
-        System.out.printf("%s%11sDEVICE STORE%11s%s%n", Colors.YELLOW.getColor(), "", "", reset);
-        System.out.printf("%s%8s== Наименование ==%8s%s%n", Colors.PURPLE.getColor(), "", "", reset);
-        System.out.printf("%s%5s>>> Категории товаров <<<%5s%s%n", Colors.PURPLE.getColor(), "", "", reset);
-        System.out.printf("%s%s%s%n", cyan, "-".repeat(35), reset);
+        System.out.printf("%s%11sDEVICE STORE%11s%s%n", colorYellow, "", "", colorReset);
+        System.out.printf("%s%8s== Наименование ==%8s%s%n", colorPurple, "", "", colorReset);
+        System.out.printf("%s%5s>>> Категории товаров <<<%5s%s%n", colorPurple, "", "", colorReset);
+        System.out.printf("%s%s%s%n", colorCyan, "-".repeat(35), colorReset);
         for (Category category : categories) {
             System.out.printf(
-                    "%s%d%s: %s- %s -%s %n",
-                    red, category.getId(), reset,
-                    cyan, category.getTitle(), reset
+                    "%s%d%s: %s- %s  %s %n",
+                    colorRed, category.getId(), colorReset,
+                    colorCyan, category.getTitle(),category.getIcon() ,colorReset
             );
             categoryProducts.put(category.getId(), category.getTitle());
         }
-        System.out.printf("%s%s%s%n", cyan, "-".repeat(35), reset);
+        System.out.printf("%s%s%s%n", colorCyan, "-".repeat(35), colorReset);
         try {
             addOurCategory();
         } catch (IOException e) {
@@ -48,18 +49,19 @@ public class ChoseCategory {
     public static void addOurCategory() throws IOException {
         // получаем категорию
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        System.out.printf("%sВыберите категорию: %s", green, reset);
+        System.out.printf("%sВыберите категорию: %s", Colors.GREEN.getColor(), colorReset);
         int select = 0;
         try {
-            select = Integer.parseInt(br.readLine());
-            if (select <= 0) {
-                throw new MyIOException(" число должно быть больше 0 ", select);
+            select = Integer.parseInt(br.readLine().trim());
+            if ((select <= 0) || (select>=4) ) {
+                throw new MyIOException(" ", select);
             }
         } catch (MyIOException e) {
-            System.out.println(red + "    Некорректный ввод : " + e.getMessage() + reset);
+            System.out.println(colorRed + " Некорректный ввод : " + e.getMessage() + colorReset);
             addOurCategory();
         } catch (NumberFormatException e) {
-            System.out.println(red + "    Некорректный ввод : введите номер товара " + reset);
+            System.out.println(colorRed + " Некорректный ввод : введите номер категории " + colorReset);
+
             addOurCategory();
         }
 
@@ -68,7 +70,7 @@ public class ChoseCategory {
             if (selected) {
 //передаем дальше что бы получить список товаров данной категории
                 System.out.println(" ");
-                System.out.println(yellow + "================== " + product.getValue() + " ==================" + reset);
+                System.out.println(colorYellow + "================== " + product.getValue() + " ==================" + colorReset);
                 Products.getProductsByCategory(product.getValue());
             }
         }
