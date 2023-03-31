@@ -64,9 +64,9 @@ public class Order {
 
         boolean isAddedUser = false;
         while (!isAddedUser) {
-            name = confirmInput("Введите ваш имя: ", 0);
+            name = confirmInput("Введите ваше имя: ", 0);
             email = confirmInput("Введите ваш email: ", 6);
-            password = confirmInput("Введите ваше пароль: ", 4);
+            password = confirmInput("Введите ваш пароль: ", 4);
             isAddedUser = control.addUser(new User(name, email, password));
         }
 
@@ -74,7 +74,7 @@ public class Order {
         user.setOrders(productCarts);
         control.updateUserData(user);
         System.out.println(
-                "Заказ оформлен ! подробности отправлены на " + Colors.PURPLE.getColor() + email + Colors.RESET.getColor()
+                "Заказ оформлен ! Подробности отправлены на " + Colors.PURPLE.getColor() + email + Colors.RESET.getColor()
         );
 
         continueShopping();
@@ -87,7 +87,7 @@ public class Order {
         String password = confirmInput("Введите ваш пароль: ", 4);
         do {
             User user = control.login(email, password);
-            System.out.println("Рады что вы снова нас посетили " + Colors.CYAN.getColor() + user.getName() + Colors.RESET.getColor());
+            System.out.println("Рады, что вы снова нас посетили " + Colors.CYAN.getColor() + user.getName() + Colors.RESET.getColor());
             user.setOrders(productCarts);
             control.updateUserData(user);
             continueShopping();

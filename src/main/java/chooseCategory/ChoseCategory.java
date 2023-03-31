@@ -4,7 +4,7 @@ package chooseCategory;
 import cart.ProductCart;
 import exceptions.MyIOException;
 import product.Category;
-import Products.Products;
+import products.Products;
 import user.User;
 import user.UsersControl;
 import utils.Colors;
@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static Products.showProducts.showProducts.showOrders;
+import static products.showProducts.ShowProducts.showOrders;
 import static utils.ReadInput.readStringInput;
 
 public class ChoseCategory {
@@ -73,6 +73,9 @@ public class ChoseCategory {
                 System.out.printf(
                     "%s%s %-8s %s%s%n",
                     colorYellow, "=".repeat(17), product.getValue(),"=".repeat(17), colorReset);
+//передаем дальше, чтобы получить список товаров данной категории
+                System.out.println(" ");
+                System.out.println(colorYellow + "================== " + product.getValue() + " ==================" + colorReset);
                 Products.getProductsByCategory(product.getValue());
             }
         }

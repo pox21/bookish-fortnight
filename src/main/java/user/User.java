@@ -19,7 +19,7 @@ public class User {
 
     public User(String name, String email, String password) {
         if (email == null || email.isEmpty() || password == null || password.isEmpty()) {
-            throw new NewIllegalException("Не корректная почта или пароль");
+            throw new NewIllegalException("Некорректная почта или пароль");
         }
         if (name == null || name.isEmpty()) {
             name = "User" + this.hashCode();

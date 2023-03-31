@@ -1,17 +1,16 @@
-package Products.sortProducts;
+package products.sortProducts;
 
 import product.*;
 import utils.Colors;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.List;
 
-import static Products.Products.getMySelectProducts;
-import static Products.showProducts.showProducts.showProductsByCategory;
+import static products.Products.getMySelectProducts;
+import static products.showProducts.ShowProducts.showProductsByCategory;
+import static utils.ReadInput.readIntInput;
 
-public class sortProducts {
+public class SortProducts {
   static String colorReset = Colors.RESET.getColor();
   static String colorRed = Colors.RED.getColor();
 
@@ -19,16 +18,14 @@ public class sortProducts {
   static String colorPurple = Colors.PURPLE.getColor();
 
   public static void sortProducts(String category, List<Product> products) throws IOException {
-    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-    try {
       System.out.println("Сортировать по: ");
       System.out.println(colorPurple + "\t '1'" + colorReset + ": возрастанию цены");
       System.out.println(colorPurple + "\t '2'" + colorReset + ": убыванию цены");
       System.out.println(colorPurple + "\t '3'" + colorReset + ": объему памяти");
       System.out.println(colorPurple + "\t '4'" + colorReset + ": названию");
-      System.out.print(colorCyan + "Введите число: " + colorReset);
-      int sortChoice = Integer.parseInt(br.readLine().trim());
+
+      int sortChoice = readIntInput("Введите число: " + colorReset, 4);;
       switch (sortChoice) {
         case 1 -> {
           assert products != null;
@@ -60,12 +57,5 @@ public class sortProducts {
           sortProducts(category,products);
         }
       }
-    } catch (IOException e) {
-      System.out.println(colorRed+"Произошла ошибка : введите число "+colorReset );
-      sortProducts(category,products);
-    } catch (NumberFormatException e) {
-      System.out.println(colorRed+"Введено неверное значение: введите номер сортировки "+colorReset);
-      sortProducts(category,products);
-    }
   }
 }

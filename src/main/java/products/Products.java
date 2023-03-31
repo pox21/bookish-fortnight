@@ -1,4 +1,4 @@
-package Products;
+package products;
 
 import parser.GsonParser;
 import product.Category;
@@ -15,14 +15,14 @@ import java.util.Map;
 
 import utils.Colors;
 
-import static ForDina.MyShoppingCart.getMyProduct;
+import static shoppingCart.MyShoppingCart.getMyProduct;
 import static chooseCategory.ChoseCategory.fill;
-import static Products.showProducts.showProducts.showProductsByCategory;
-import static Products.sortProducts.sortProducts.sortProducts;
+import static products.showProducts.ShowProducts.showProductsByCategory;
+import static products.sortProducts.SortProducts.sortProducts;
 
 public class Products {
-    static String colorRed = Colors.RED.getColor();
-    static String colorReset = Colors.RESET.getColor();
+    public static String colorRed = Colors.RED.getColor();
+    public static String colorReset = Colors.RESET.getColor();
     static String colorGreen = Colors.GREEN.getColor();
 
     static List<Category> categories = GsonParser.parseCategories("src/main/resources/categories.json");
@@ -46,7 +46,7 @@ public class Products {
             return;
         }
         if (choice.isEmpty()) {
-            System.out.println(colorRed+ "Некоректный ввод "+colorReset);
+            System.out.println(colorRed+ "Некорректный ввод "+colorReset);
             getProductsByCategory(category);
             return;
         }
