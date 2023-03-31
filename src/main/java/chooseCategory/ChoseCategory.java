@@ -81,7 +81,7 @@ public class ChoseCategory {
         }
     }
 
-    public static void userPanel() {
+    public static void userPanel() throws IOException {
         auth();
         if (user.getOrders().size() > 0) {
             char isShowOrders = readStringInput("Хотите посмотреть свои покупки? (y - 'да', n - 'нет'): ", 0).toLowerCase().charAt(0);
@@ -92,17 +92,20 @@ public class ChoseCategory {
         }
     }
 
-    public static void auth() {
+    public static void auth() throws IOException {
         boolean isAuth = false;
+        int i =0;
         do {
             String email = readStringInput("Введите ваш email: ", 6);
             String password = readStringInput("Введите ваш пароль: ", 4);
             isAuth = control.authorization(email, password);
+            i++;
             if (isAuth) {
                 user = control.login(email, password);
                 System.out.println("Вы вошли под именем " + Colors.CYAN.getColor() + user.getName() + Colors.RESET.getColor());
-            }
-        } while (!isAuth);
+                break;}
+        } while (i<3);
+        addOurCategory();
     }
 
 
