@@ -48,7 +48,7 @@ public class ChoseCategory {
         }
         System.out.printf("%s%s%s%n", colorCyan, "-".repeat(35), colorReset);
         try {
-            char isAccountHas = readStringInput("У вас есть аккаунт? y/n", 0).toLowerCase().charAt(0);
+            char isAccountHas = readStringInput("У вас есть аккаунт? y/n: ", 0).toLowerCase().charAt(0);
             if (isAccountHas == 'y') {
                 auth();
             }
