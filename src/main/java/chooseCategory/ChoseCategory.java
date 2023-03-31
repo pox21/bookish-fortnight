@@ -66,7 +66,7 @@ public class ChoseCategory {
         for (Map.Entry<Integer, String> product : categoryProducts.entrySet()) {
             boolean selected = product.getKey() == select;
             if (selected) {
-//передаем дальше что бы получить список товаров данной категории
+//передаем дальше, чтобы получить список товаров данной категории
                 System.out.println(" ");
                 System.out.println(colorYellow + "================== " + product.getValue() + " ==================" + colorReset);
                 Products.getProductsByCategory(product.getValue());

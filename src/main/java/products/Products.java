@@ -46,7 +46,7 @@ public class Products {
             return;
         }
         if (choice.isEmpty()) {
-            System.out.println(colorRed+ "Некоректный ввод "+colorReset);
+            System.out.println(colorRed+ "Некорректный ввод "+colorReset);
             getProductsByCategory(category);
             return;
         }
