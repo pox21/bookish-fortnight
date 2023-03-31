@@ -35,8 +35,7 @@ public class Products {
         assert products != null;
         showProductsByCategory(category,products); //показывает продукты по категориям
         System.out.println();
-        System.out.println("Хотите отсортировать товары?");
-        System.out.print("Введите 'Y', если 'да' или N, если 'нет': ");
+        System.out.print("Хотите отсортировать товары? (y - 'да', n - 'нет'): ");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         String choice = br.readLine().trim();
@@ -80,14 +79,14 @@ public class Products {
                     continue;
                 }
 
-                System.out.print("Хотите добавить еще товар из данной категории? Нажмите Y/N: ");
+                System.out.print("Хотите добавить еще товар из данной категории? (y - 'да', n - 'нет'): ");
                 String yOrN = br.readLine().trim();
                 if (yOrN.equalsIgnoreCase("Y")) {
                     getMySelectProducts(products);
                     return;
                 }
 
-                    System.out.print("Хотите вернуться к категориям товаров? Нажмите Y/N: ");
+                    System.out.print("Хотите вернуться к категориям товаров? (y - 'да', n - 'нет'): ");
                     String yOrNCategory = br.readLine().trim();
                     if (yOrNCategory.equalsIgnoreCase("Y")) {
                         fill(categories);
@@ -102,7 +101,7 @@ public class Products {
             System.out.println( e.getMessage());
             e.printStackTrace();
         }catch (NumberFormatException e){
-            System.out.println(colorRed+"Ошибка: Можно ввести только артикль товара "+colorReset);
+            System.out.println(colorRed+"Ошибка: Можно ввести только артикул товара "+colorReset);
             getMySelectProducts(products);
         }
 
