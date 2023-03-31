@@ -44,9 +44,9 @@ public class ReadInput {
                     throw new MyIOException(" ", response);
                 }
             } catch (IOException | MyIOException e) {
-                System.out.println(colorRed + " Некорректный ввод : " + e.getMessage() + colorReset);
+                System.out.println(colorRed + " Некорректный ввод \uD83D\uDE22 " + e.getMessage() + colorReset);
             }  catch (NumberFormatException e) {
-                System.out.println(colorRed + " Некорректный ввод : " + colorReset);
+                System.out.println(colorRed + " Некорректный ввод \uD83D\uDE22 " + colorReset);
             }
         }
         return response;
