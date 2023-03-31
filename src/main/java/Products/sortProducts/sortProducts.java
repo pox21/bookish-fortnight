@@ -23,11 +23,11 @@ public class sortProducts {
 
     try {
       System.out.println("Сортировать по: ");
-      System.out.println("\t - возрастанию цены:" + colorPurple + " '1'" + colorReset);
-      System.out.println("\t - убыванию цены:" + colorPurple + " '2'" + colorReset);
-      System.out.println("\t - объему памяти:" + colorPurple + " '3'" + colorReset);
-      System.out.println("\t - названию:" + colorPurple + " '4'" + colorReset);
-      System.out.print(colorCyan + "введите число: " + colorReset);
+      System.out.println(colorPurple + "\t '1'" + colorReset + ": возрастанию цены");
+      System.out.println(colorPurple + "\t '2'" + colorReset + ": убыванию цены");
+      System.out.println(colorPurple + "\t '3'" + colorReset + ": объему памяти");
+      System.out.println(colorPurple + "\t '4'" + colorReset + ": названию");
+      System.out.print(colorCyan + "Введите число: " + colorReset);
       int sortChoice = Integer.parseInt(br.readLine().trim());
       switch (sortChoice) {
         case 1 -> {

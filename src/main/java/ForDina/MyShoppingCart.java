@@ -22,7 +22,7 @@ public class MyShoppingCart {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         printCart(selectedProduct);
 
-        System.out.print("Хотите удалить все товары из корзины? Нажмите Y/N: ");
+        System.out.print("Хотите удалить все товары из корзины? (y - 'да', n - 'нет'): ");
         String s = br.readLine();
         if (s.equalsIgnoreCase("Y")) {
             selectedProduct.clear();
@@ -52,7 +52,7 @@ public class MyShoppingCart {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         do {
-            System.out.print("Хотите удалить конкретный товар? Нажмите Y/N: ");
+            System.out.print("Хотите удалить конкретный товар? (y - 'да', n - 'нет'): ");
             String yOrN = br.readLine();
             if (yOrN.equalsIgnoreCase("Y")) {
                 try {
