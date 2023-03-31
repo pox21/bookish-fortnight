@@ -3,7 +3,7 @@ package chooseCategory;
 
 import exceptions.MyIOException;
 import product.Category;
-import Products.Products;
+import products.Products;
 import user.User;
 import user.UsersControl;
 import utils.Colors;
