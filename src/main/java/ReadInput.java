@@ -9,7 +9,7 @@ import static Products.Products.colorReset;
 
 public class ReadInput {
 
-    public static String readString(String input, int limit) {
+    public static String readStringInput(String input, int limit) {
         String response = null;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         while (response == null || response.isEmpty()) {
@@ -30,7 +30,7 @@ public class ReadInput {
         return response;
     }
 
-    public static int readInt(String input, int limit) {
+    public static int readIntInput(String input, int limit) {
         int response = 0;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
