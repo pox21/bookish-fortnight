@@ -73,9 +73,6 @@ public class ChoseCategory {
                 System.out.printf(
                     "%s%s %-8s %s%s%n",
                     colorYellow, "=".repeat(17), product.getValue(),"=".repeat(17), colorReset);
-//передаем дальше, чтобы получить список товаров данной категории
-                System.out.println(" ");
-                System.out.println(colorYellow + "================== " + product.getValue() + " ==================" + colorReset);
                 Products.getProductsByCategory(product.getValue());
             }
         }
@@ -105,6 +102,8 @@ public class ChoseCategory {
                 System.out.println("Вы вошли под именем " + Colors.CYAN.getColor() + user.getName() + Colors.RESET.getColor());
                 break;}
         } while (i<3);
+
+        System.out.println(colorYellow + "Нам кажется вы мошенник \uD83D\uDE11! или забыли свои данные, попробуйте как-нибудь в другой раз \uD83D\uDE09" + colorReset);
         addOurCategory();
     }
 
