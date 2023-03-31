@@ -81,20 +81,20 @@ public class Products {
                 }
 
                 System.out.print("Хотите добавить еще товар из данной категории? Нажмите Y/N: ");
-                String yOrN = br.readLine();
+                String yOrN = br.readLine().trim();
+                if (yOrN.equalsIgnoreCase("Y")) {
+                    getMySelectProducts(products);
+                    return;
+                }
 
-                if (yOrN.equalsIgnoreCase("N")) {
                     System.out.print("Хотите вернуться к категориям товаров? Нажмите Y/N: ");
-                    String yOrNCategory = br.readLine();
+                    String yOrNCategory = br.readLine().trim();
                     if (yOrNCategory.equalsIgnoreCase("Y")) {
                         fill(categories);
                         return;
                     }
                     addMore = false;
-                } else if (yOrN.equalsIgnoreCase("Y")) {
-                    getMySelectProducts(products);
-                    return;
-                }
+
             } while (addMore);
             getMyProduct(myProducts.get("MY-DEVICE"));
 
