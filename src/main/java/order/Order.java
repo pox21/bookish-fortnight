@@ -24,7 +24,7 @@ public class Order {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         while (response == null || response.isEmpty()) {
             try {
-                System.out.println(str);
+                System.out.print(str);
                 response = br.readLine().trim();
                 if (response.isEmpty()) {
                     System.out.println(str + " - не должно пустым");
@@ -42,13 +42,13 @@ public class Order {
 
     public static void confirmOrder(List<ProductCart> productCarts) {
         System.out.println("Оформить заказ ?");
-        char isConfirm = confirmInput("y - да, n - нет", 0).toLowerCase().charAt(0);
+        char isConfirm = confirmInput(" y - 'да', n - 'нет'", 0).toLowerCase().charAt(0);
         if (isConfirm != 'y') {
             assert categories != null;
             System.out.println("Вернуться на главную");
             ChoseCategory.fill(categories);
         } else {
-            char isHaveAccount = confirmInput("У вас уже есть аккаунт ? y - да, n - нет", 0).toLowerCase().charAt(0);
+            char isHaveAccount = confirmInput("У вас уже есть аккаунт? (y - 'да', n - 'нет'): ", 0).toLowerCase().charAt(0);
             if (isHaveAccount != 'y') {
                 createAccount(productCarts);
             } else {
@@ -64,8 +64,8 @@ public class Order {
 
         boolean isAddedUser = false;
         while (!isAddedUser) {
-            name = confirmInput("Введите ваше имя: ", 0);
-            email = confirmInput("Введите ваше email: ", 6);
+            name = confirmInput("Введите ваш имя: ", 0);
+            email = confirmInput("Введите ваш email: ", 6);
             password = confirmInput("Введите ваше пароль: ", 4);
             isAddedUser = control.addUser(new User(name, email, password));
         }
@@ -83,8 +83,8 @@ public class Order {
     }
 
     public static void auth(List<ProductCart> productCarts) {
-        String email = confirmInput("Введите ваше email: ", 6);
-        String password = confirmInput("Введите ваше пароль: ", 4);
+        String email = confirmInput("Введите ваш email: ", 6);
+        String password = confirmInput("Введите ваш пароль: ", 4);
         do {
             User user = control.login(email, password);
             System.out.println("Рады что вы снова нас посетили " + Colors.CYAN.getColor() + user.getName() + Colors.RESET.getColor());
