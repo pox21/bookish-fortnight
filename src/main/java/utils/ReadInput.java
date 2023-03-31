@@ -1,14 +1,16 @@
-import exceptions.MyIOException;
+package utils;
 
+import exceptions.MyIOException;
+import utils.Colors;
+
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import static Products.Products.colorRed;
-import static Products.Products.colorReset;
-
 public class ReadInput {
-
+    public static String colorRed = Colors.RED.getColor();
+    public static String colorReset = Colors.RESET.getColor();
     public static String readStringInput(String input, int limit) {
         String response = null;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

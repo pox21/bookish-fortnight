@@ -4,7 +4,10 @@ package chooseCategory;
 import exceptions.MyIOException;
 import product.Category;
 import Products.Products;
+import user.User;
+import user.UsersControl;
 import utils.Colors;
+
 
 
 import java.io.BufferedReader;
@@ -14,12 +17,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static utils.ReadInput.readStringInput;
+
 public class ChoseCategory {
     static String colorReset = Colors.RESET.getColor();
     static String colorYellow = Colors.YELLOW.getColor();
     static String colorCyan = Colors.CYAN.getColor();
     static String colorRed = Colors.RED.getColor();
     static String colorPurple = Colors.PURPLE.getColor();
+
+    public static UsersControl control = new UsersControl();
+    public static User user;
     private static final Map<Integer, String> categoryProducts = new HashMap<>();
 
     // Выводим категории в консоль
@@ -40,7 +48,10 @@ public class ChoseCategory {
         }
         System.out.printf("%s%s%s%n", colorCyan, "-".repeat(35), colorReset);
         try {
-            System.out.println("У вас есть аккаунт ?");
+            char isAccountHas = readStringInput("У вас есть аккаунт ?", 0).toLowerCase().charAt(0);
+            if (isAccountHas == 'y') {
+                auth();
+            }
             addOurCategory();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -62,6 +73,23 @@ public class ChoseCategory {
             }
         }
     }
+
+//    public static void
+
+    public static void auth() {
+        boolean isAuth = false;
+        do {
+            String email = readStringInput("Введите ваш email: ", 6);
+            String password = readStringInput("Введите ваш пароль: ", 4);
+            isAuth = control.authorization(email, password);
+            if (isAuth) {
+                user = control.login(email, password);
+                System.out.println("Вы вошли под именем " + Colors.CYAN.getColor() + user.getName() + Colors.RESET.getColor());
+            }
+        } while (!isAuth);
+    }
+
+
 
     // метод для принятия ввода с клавиатуры
     public static int readInt(String info, int limit) {
