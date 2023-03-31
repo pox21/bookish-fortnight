@@ -94,5 +94,39 @@
     "email": "user689@gmail.com",
     "password": "1234",
     "admin": false
+  },
+  {
+    "name": "WWWWWW",
+    "email": "werwrsdfs",
+    "password": "234546456",
+    "orders": [
+      {
+        "amount": 12,
+        "title": "iphone 10",
+        "id": 3679950092239,
+        "price": 500,
+        "memory": "128GB",
+        "category": "PHONE",
+        "article": 1001
+      }
+    ],
+    "admin": false
+  },
+  {
+    "name": "WWWWWW",
+    "email": "werwrsdfs",
+    "password": "234546456",
+    "orders": [
+      {
+        "amount": 12,
+        "title": "iphone 10",
+        "id": 3679950092239,
+        "price": 500,
+        "memory": "128GB",
+        "category": "PHONE",
+        "article": 1001
+      }
+    ],
+    "admin": false
   }
 ]

@@ -2,15 +2,13 @@ package cart;
 
 
 import product.Product;
-import utils.Colors;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Cart {
-    public List<ProductCart> products = new ArrayList<>();
+    public static List<ProductCart> products = new ArrayList<>();
 
-    public void addProductToCart(List<Product> selectedProducts) {
+    public static void addProductToCart(List<Product> selectedProducts) {
         for (Product product : selectedProducts) {
             ProductCart productCart = new ProductCart(
                     product.getId(),

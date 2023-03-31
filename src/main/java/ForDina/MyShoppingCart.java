@@ -10,7 +10,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 
+import static Products.showProducts.showProducts.showProductsCart;
+import static order.Order.confirmOrder;
+
 public class MyShoppingCart {
+    static String colorReset = Colors.RESET.getColor();
+    static String colorRed = Colors.RED.getColor();
+    static String colorCyan = Colors.CYAN.getColor();
 
     public static void getMyProduct(List<Product> selectedProduct) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -21,7 +27,7 @@ public class MyShoppingCart {
         if (s.equalsIgnoreCase("Y")) {
             selectedProduct.clear();
             printCart(selectedProduct);
-            cart.addProductToCart(selectedProduct);
+            cart.Cart.addProductToCart(selectedProduct);
         }
 
         if (selectedProduct.size() > 0) removeFromCart(selectedProduct);
@@ -54,7 +60,7 @@ public class MyShoppingCart {
                     int select = Integer.parseInt(br.readLine());
                     selectedProduct.remove(selectedProduct.get(select - 1));
                     printCart(selectedProduct);
-                    cart.addProductToCart(selectedProduct);
+                    cart.Cart.addProductToCart(selectedProduct);
                 } catch (IndexOutOfBoundsException e) {
                     System.out.println(colorRed+"Введите корректное значение!"+colorReset);
                 }
@@ -62,8 +68,8 @@ public class MyShoppingCart {
             }
             if (yOrN.equalsIgnoreCase("N")) {
                 printCart(selectedProduct);
-                cart.addProductToCart(selectedProduct);
-                confirmOrder(cart.products);
+                cart.Cart.addProductToCart(selectedProduct);
+                confirmOrder(cart.Cart.products);
                 break;
             }
         } while (selectedProduct.size() > 0);
