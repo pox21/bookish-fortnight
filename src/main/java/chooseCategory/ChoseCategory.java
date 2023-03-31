@@ -1,6 +1,7 @@
 
 package chooseCategory;
 
+import cart.ProductCart;
 import exceptions.MyIOException;
 import product.Category;
 import Products.Products;
@@ -17,6 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static Products.showProducts.showProducts.showOrders;
 import static utils.ReadInput.readStringInput;
 
 public class ChoseCategory {
@@ -48,9 +50,9 @@ public class ChoseCategory {
         }
         System.out.printf("%s%s%s%n", colorCyan, "-".repeat(35), colorReset);
         try {
-            char isAccountHas = readStringInput("У вас есть аккаунт ?", 0).toLowerCase().charAt(0);
+            char isAccountHas = readStringInput("У вас уже есть аккаунт? (y - 'да', n - 'нет'): ", 0).toLowerCase().charAt(0);
             if (isAccountHas == 'y') {
-                auth();
+                userPanel();
             }
             addOurCategory();
         } catch (IOException e) {
@@ -67,14 +69,25 @@ public class ChoseCategory {
             boolean selected = product.getKey() == select;
             if (selected) {
 //передаем дальше что бы получить список товаров данной категории
-                System.out.println(" ");
-                System.out.println(colorYellow + "================== " + product.getValue() + " ==================" + colorReset);
+                System.out.println();
+                System.out.printf(
+                    "%s%s %-8s %s%s%n",
+                    colorYellow, "=".repeat(17), product.getValue(),"=".repeat(17), colorReset);
                 Products.getProductsByCategory(product.getValue());
             }
         }
     }
 
-//    public static void
+    public static void userPanel() {
+        auth();
+        if (user.getOrders().size() > 0) {
+            char isShowOrders = readStringInput("Хотите посмотреть свои покупки? (y - 'да', n - 'нет'): ", 0).toLowerCase().charAt(0);
+            if (isShowOrders == 'y') {
+                System.out.println(colorPurple + ">> " + user.getName() + " <<" + colorReset);
+                showOrders(user.getOrders());
+            }
+        }
+    }
 
     public static void auth() {
         boolean isAuth = false;

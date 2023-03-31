@@ -4,6 +4,7 @@ import product.Product;
 
 public class ProductCart extends Product {
     protected int amount = 1;
+    protected int totalPrice = 0;
 
     public ProductCart(long id, String title, int price, String memory, String category, int article) {
         super(title, id, price, memory, category, article);
@@ -20,7 +21,15 @@ public class ProductCart extends Product {
 
     @Override
     public int getPrice() {
-        return this.price * this.amount;
+        return this.price;
+    }
+
+    public int getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice() {
+        this.totalPrice = this.price * this.amount;;
     }
 
     @Override

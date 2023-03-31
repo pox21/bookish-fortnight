@@ -24,6 +24,7 @@ public class Cart {
                     cart.setAmount(cart.getAmount() + 1);
                     isAdded = true;
                 }
+                cart.setTotalPrice();
             }
             if (!isAdded) {
                 products.add(productCart);
