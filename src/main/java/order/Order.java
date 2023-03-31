@@ -4,14 +4,12 @@ import cart.ProductCart;
 import chooseCategory.ChoseCategory;
 import parser.GsonParser;
 import product.Category;
-import product.Product;
 import user.User;
 import user.UsersControl;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
