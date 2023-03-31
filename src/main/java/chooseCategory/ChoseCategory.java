@@ -40,6 +40,7 @@ public class ChoseCategory {
         }
         System.out.printf("%s%s%s%n", colorCyan, "-".repeat(35), colorReset);
         try {
+            System.out.println("У вас есть аккаунт ?");
             addOurCategory();
         } catch (IOException e) {
             throw new RuntimeException(e);

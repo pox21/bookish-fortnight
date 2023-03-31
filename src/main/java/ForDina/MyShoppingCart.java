@@ -27,7 +27,7 @@ public class MyShoppingCart {
         if (s.equalsIgnoreCase("Y")) {
             selectedProduct.clear();
             printCart(selectedProduct);
-            cart.Cart.addProductToCart(selectedProduct);
+            Cart.removeProducts();
         }
 
         if (selectedProduct.size() > 0) removeFromCart(selectedProduct);
@@ -60,7 +60,6 @@ public class MyShoppingCart {
                     int select = Integer.parseInt(br.readLine());
                     selectedProduct.remove(selectedProduct.get(select - 1));
                     printCart(selectedProduct);
-                    cart.Cart.addProductToCart(selectedProduct);
                 } catch (IndexOutOfBoundsException e) {
                     System.out.println(colorRed+"Введите корректное значение!"+colorReset);
                 }
@@ -68,8 +67,8 @@ public class MyShoppingCart {
             }
             if (yOrN.equalsIgnoreCase("N")) {
                 printCart(selectedProduct);
-                cart.Cart.addProductToCart(selectedProduct);
-                confirmOrder(cart.Cart.products);
+                Cart.addProductToCart(selectedProduct);
+                confirmOrder(Cart.products);
                 break;
             }
         } while (selectedProduct.size() > 0);

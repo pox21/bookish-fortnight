@@ -63,19 +63,8 @@ public class User {
     }
 
     public void setOrders(List<ProductCart> orders) {
-        this.orders = merge(this.orders, orders);
+        this.orders = orders;
     }
-
-    public static<T> List<T> merge(List<T> list1, List<T> list2)
-    {
-        List<T> list = new ArrayList<>();
-
-        list.addAll(list1);
-        list.addAll(list2);
-
-        return list;
-    }
-
 
     @Override
     public String toString() {

@@ -32,11 +32,11 @@ public class Cart {
         }
     }
 
-    public void removeProductToCart(ProductCart product) {
+    public static void removeProductToCart(ProductCart product) {
         products.remove(product);
     }
 
-    public void removeProducts() {
+    public static void removeProducts() {
         products.clear();
     }
 
