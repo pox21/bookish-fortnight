@@ -42,7 +42,7 @@ public class Order {
 
     public static void confirmOrder(List<ProductCart> productCarts) {
         System.out.println("Оформить заказ ?");
-        char isConfirm = confirmInput(" y - 'да', n - 'нет'", 0).toLowerCase().charAt(0);
+        char isConfirm = confirmInput(" (y - 'да', n - 'нет'): ", 0).toLowerCase().charAt(0);
         if (isConfirm != 'y') {
             assert categories != null;
             System.out.println("Вернуться на главную");

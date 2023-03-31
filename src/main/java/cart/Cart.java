@@ -10,14 +10,7 @@ public class Cart {
 
     public static void addProductToCart(List<Product> selectedProducts) {
         for (Product product : selectedProducts) {
-            ProductCart productCart = new ProductCart(
-                    product.getId(),
-                    product.getTitle(),
-                    product.getPrice(),
-                    product.getMemory(),
-                    product.getCategory(),
-                    product.getArticle()
-            );
+            ProductCart productCart = new ProductCart(product);
             boolean isAdded = false;
             for (ProductCart cart : products) {
                 if (cart.getId() == product.getId()) {

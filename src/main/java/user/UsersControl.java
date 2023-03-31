@@ -69,7 +69,17 @@ public class UsersControl {
     }
 
     public void updateUserData(User user) {
-        users.add(user);
+        boolean isAdded = false;
+        for (int i = 0; i < users.size(); i++) {
+            User u = users.get(i);
+            if (u.getEmail().equalsIgnoreCase(user.getEmail())) {
+                users.set(i, user);
+                isAdded = true;
+            }
+        }
+        if (!isAdded) {
+            users.add(user);
+        }
         gsonToJson.addUsersToJson(users, pathToUsers);
     }
 

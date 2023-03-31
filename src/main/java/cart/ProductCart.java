@@ -10,6 +10,10 @@ public class ProductCart extends Product {
         super(title, id, price, memory, category, article);
     }
 
+    public ProductCart(Product product) {
+        super(product.getTitle(), product.getId(), product.getPrice(), product.getMemory(), product.getCategory(), product.getArticle());
+    }
+
 
     public void setAmount(int amount) {
         this.amount = amount;
