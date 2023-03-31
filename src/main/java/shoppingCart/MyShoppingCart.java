@@ -1,8 +1,7 @@
-package ForDina;
+package shoppingCart;
 
 import cart.Cart;
 import product.Product;
-import Products.Products;
 import utils.Colors;
 
 import java.io.BufferedReader;
@@ -10,7 +9,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 
-import static Products.showProducts.showProducts.showProductsCart;
+import static products.showProducts.ShowProducts.showProductsCart;
 import static order.Order.confirmOrder;
 
 public class MyShoppingCart {
