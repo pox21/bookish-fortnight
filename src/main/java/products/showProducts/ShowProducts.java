@@ -1,10 +1,10 @@
-package Products.showProducts;
+package products.showProducts;
 
 import product.Product;
 import utils.Colors;
 import java.util.List;
 
-public class showProducts {
+public class ShowProducts {
 
   static String colorReset = Colors.RESET.getColor();
   static String colorGreen = Colors.GREEN.getColor();
