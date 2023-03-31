@@ -32,9 +32,9 @@ public class ChoseCategory {
         System.out.printf("%s%s%s%n", colorCyan, "-".repeat(35), colorReset);
         for (Category category : categories) {
             System.out.printf(
-                    "%s%d%s: %s- %s  %s %n",
+                    "%s%d%s: %s- %s %s - %s%n",
                     colorRed, category.getId(), colorReset,
-                    colorCyan, category.getTitle(),category.getIcon() ,colorReset
+                    colorCyan, category.getTitle(), category.getIcon(), colorReset
             );
             categoryProducts.put(category.getId(), category.getTitle());
         }
@@ -48,23 +48,9 @@ public class ChoseCategory {
     }
 
     public static void addOurCategory() throws IOException {
+        String formatInfo = String.format("%sВыберите категорию: %s", Colors.GREEN.getColor(), colorReset);
         // получаем категорию
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        System.out.printf("%sВыберите категорию: %s", Colors.GREEN.getColor(), colorReset);
-        int select = 0;
-        try {
-            select = Integer.parseInt(br.readLine().trim());
-            if ((select <= 0) || (select>=4) ) {
-                throw new MyIOException(" ", select);
-            }
-        } catch (MyIOException e) {
-            System.out.println(colorRed + " Некорректный ввод : " + e.getMessage() + colorReset);
-            addOurCategory();
-        } catch (NumberFormatException e) {
-            System.out.println(colorRed + " Некорректный ввод : введите номер категории " + colorReset);
-
-            addOurCategory();
-        }
+        int select = readInt(formatInfo, categoryProducts.size());
 
         for (Map.Entry<Integer, String> product : categoryProducts.entrySet()) {
             boolean selected = product.getKey() == select;
@@ -75,5 +61,27 @@ public class ChoseCategory {
                 Products.getProductsByCategory(product.getValue());
             }
         }
+    }
+
+    // метод для принятия ввода с клавиатуры
+    public static int readInt(String info, int limit) {
+        int response = 0;
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        while (response == 0 || response > limit) {
+            try {
+                System.out.print(info);
+                response = Integer.parseInt(br.readLine().trim());
+                if (response < 1 || response > limit) {
+                    throw new MyIOException(" ", response);
+                }
+            } catch (IOException | MyIOException e) {
+                System.out.println(colorRed + " Некорректный ввод : " + e.getMessage() + colorReset);
+            }  catch (NumberFormatException e) {
+                System.out.println(colorRed + " Некорректный ввод : введите номер категории " + colorReset);
+            }
+        }
+
+        return response;
     }
 }

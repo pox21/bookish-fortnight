@@ -97,7 +97,7 @@ public class Order {
 
     public static void continueShopping () {
         System.out.println("Спасибо за покупку");
-        char isContinueShopping = confirmInput("Хотите купить что-то ещё ? y - да, n - нет", 0).toLowerCase().charAt(0);
+        char isContinueShopping = confirmInput("Хотите купить что-то ещё ? (y - да, n - нет): ", 0).toLowerCase().charAt(0);
         if (isContinueShopping == 'n') {
             System.out.println("Очень жаль \uD83D\uDE1E");
             System.out.println("Поздравляем вас с покупками");
