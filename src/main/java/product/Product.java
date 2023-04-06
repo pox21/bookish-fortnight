@@ -1,78 +1,79 @@
 package product;
 
 public class Product {
-    protected String title;
-    protected long id;
-    protected int price;
-    protected String memory;
-    protected String category;
-    protected int article;
 
-    public Product(String title, long id, int price, String memory, String category, int article) {
-        this.title = title;
-        this.id = id;
-        this.price = price;
-        this.memory = memory;
-        this.category = category;
-        this.article = article;
-    }
+  protected String title;
+  protected long id;
+  protected int price;
+  protected String memory;
+  protected String category;
+  protected int article;
 
-    public int getArticle() {
-        return article;
-    }
+  public Product(String title, long id, int price, String memory, String category, int article) {
+    this.title = title;
+    this.id = id;
+    this.price = price;
+    this.memory = memory;
+    this.category = category;
+    this.article = article;
+  }
 
-    public void setArticle(int article) {
-        this.article = article;
-    }
+  public int getArticle() {
+    return article;
+  }
 
-    public String getTitle() {
-        return title;
-    }
+  public void setArticle(int article) {
+    this.article = article;
+  }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+  public String getTitle() {
+    return title;
+  }
 
-    public long getId() {
-        return id;
-    }
+  public void setTitle(String title) {
+    this.title = title;
+  }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+  public long getId() {
+    return id;
+  }
 
-    public int getPrice() {
-        return price;
-    }
+  public void setId(long id) {
+    this.id = id;
+  }
 
-    public void setPrice(int price) {
-        this.price = price;
-    }
+  public int getPrice() {
+    return price;
+  }
 
-    public String getMemory() {
-        return memory;
-    }
+  public void setPrice(int price) {
+    this.price = price;
+  }
 
-    public void setMemory(String memory) {
-        this.memory = memory;
-    }
+  public String getMemory() {
+    return memory;
+  }
 
-    public String getCategory() {
-        return category;
-    }
+  public void setMemory(String memory) {
+    this.memory = memory;
+  }
 
-    public void setCategory(String category) {
-        this.category = category;
-    }
+  public String getCategory() {
+    return category;
+  }
 
-    @Override
-    public String toString() {
-        return "{ " +
-                "title = '" + title + '\'' +
-                ", id = " + id +
-                ", price = " + price +
-                ", memory = '" + memory + '\'' +
-                ", category = '" + category + '\'' +
-                '}';
-    }
+  public void setCategory(String category) {
+    this.category = category;
+  }
+
+  @Override
+  public String toString() {
+    return "{ " +
+        "title = '" + title + '\'' +
+        ", id = " + id +
+        ", price = " + price +
+        ", memory = '" + memory + '\'' +
+        ", category = '" + category + '\'' +
+        '}';
+  }
 }

@@ -4,14 +4,15 @@ import java.util.Comparator;
 
 //По названиям. Если названия одинаковые, то по увеличению цены
 public class ProductIncreasingTitleIncreasingPriceComparator implements Comparator<Product> {
-    @Override
-    public int compare(Product o1, Product o2) {
 
-        if (!o1.getTitle().equals(o2.getTitle())) {
-            return o1.getTitle().compareTo(o2.getTitle());
-        }
-        return o1.getPrice() - o2.getPrice();
+  @Override
+  public int compare(Product o1, Product o2) {
+
+    if (!o1.getTitle().equals(o2.getTitle())) {
+      return o1.getTitle().compareTo(o2.getTitle());
     }
+    return o1.getPrice() - o2.getPrice();
+  }
 }
 
 // Вариант со сравнением чисел внутри строки

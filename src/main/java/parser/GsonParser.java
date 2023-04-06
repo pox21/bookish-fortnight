@@ -12,45 +12,45 @@ import java.util.List;
 
 public class GsonParser {
 
-    public static List<Product> parseProducts(String filePath) {
+  public static List<Product> parseProducts(String filePath) {
 
-        Gson gson = new Gson();
+    Gson gson = new Gson();
 
-        try (FileReader reader = new FileReader(filePath)) {
-            return gson.fromJson(reader, new TypeToken<ArrayList<Product>>() {
-            }.getType());
-        } catch (Exception e) {
-            System.out.println("Parsing error " + e.getMessage());
-        }
-
-        return null;
+    try (FileReader reader = new FileReader(filePath)) {
+      return gson.fromJson(reader, new TypeToken<ArrayList<Product>>() {
+      }.getType());
+    } catch (Exception e) {
+      System.out.println("Parsing error " + e.getMessage());
     }
 
-    public static List<Category> parseCategories(String filePath) {
+    return null;
+  }
 
-        Gson gson = new Gson();
+  public static List<Category> parseCategories(String filePath) {
 
-        try (FileReader reader = new FileReader(filePath)) {
-            return gson.fromJson(reader, new TypeToken<ArrayList<Category>>() {
-            }.getType());
-        } catch (Exception e) {
-            System.out.println("Parsing error " + e.getMessage());
-        }
+    Gson gson = new Gson();
 
-        return null;
+    try (FileReader reader = new FileReader(filePath)) {
+      return gson.fromJson(reader, new TypeToken<ArrayList<Category>>() {
+      }.getType());
+    } catch (Exception e) {
+      System.out.println("Parsing error " + e.getMessage());
     }
 
-    public static List<User> parseUsers(String filePath) {
+    return null;
+  }
 
-        Gson gson = new Gson();
+  public static List<User> parseUsers(String filePath) {
 
-        try (FileReader reader = new FileReader(filePath)) {
-            return gson.fromJson(reader, new TypeToken<ArrayList<User>>() {
-            }.getType());
-        } catch (Exception e) {
-            System.out.println("Parsing error " + e.getMessage());
-        }
+    Gson gson = new Gson();
 
-        return null;
+    try (FileReader reader = new FileReader(filePath)) {
+      return gson.fromJson(reader, new TypeToken<ArrayList<User>>() {
+      }.getType());
+    } catch (Exception e) {
+      System.out.println("Parsing error " + e.getMessage());
     }
+
+    return null;
+  }
 }

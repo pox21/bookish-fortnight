@@ -5,74 +5,77 @@ import exceptions.NewIllegalException;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class User {
-    private String name;
-    private final String email;
 
-    private String password;
+  private String name;
+  private final String email;
 
-    private List<ProductCart> orders = new ArrayList<>();
+  private String password;
 
-    private boolean admin = false;
+  private Map<Integer, List<ProductCart>> orders = new HashMap<>();
 
-    public User(String name, String email, String password) {
-        if (email == null || email.isEmpty() || password == null || password.isEmpty()) {
-            throw new NewIllegalException("Некорректная почта или пароль");
-        }
-        if (name == null || name.isEmpty()) {
-            name = "User" + this.hashCode();
-        }
+  private boolean admin = false;
 
-        this.name = name;
-        this.email = email;
-        this.password = password;
+  public User(String name, String email, String password) {
+    if (email == null || email.isEmpty() || password == null || password.isEmpty()) {
+      throw new NewIllegalException("Некорректная почта или пароль");
+    }
+    if (name == null || name.isEmpty()) {
+      name = "User" + this.hashCode();
     }
 
-    public String getEmail() {
-        return email;
-    }
+    this.name = name;
+    this.email = email;
+    this.password = password;
+  }
 
-    public boolean isAdmin() {
-        return admin;
-    }
+  public String getEmail() {
+    return email;
+  }
 
-    public void setAdmin(boolean admin) {
-        this.admin = admin;
-    }
+  public boolean isAdmin() {
+    return admin;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public void setAdmin(boolean admin) {
+    this.admin = admin;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public String getPassword() {
-        return password;
-    }
+  public void setPassword(String password) {
+    this.password = password;
+  }
 
-    public List<ProductCart> getOrders() {
-        return orders;
-    }
+  public String getPassword() {
+    return password;
+  }
 
-    public void setOrders(List<ProductCart> orders) {
-        this.orders = orders;
-    }
+  public Map<Integer, List<ProductCart>> getOrders() {
+    return orders;
+  }
 
-    @Override
-    public String toString() {
-        return "User {" +
-                "name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", orders=" + orders.toString() + "" +
-                ", admin=" + admin +
-                '}';
-    }
+  public void setOrders(Map<Integer, List<ProductCart>> order) {
+    this.orders = order;
+  }
+
+  @Override
+  public String toString() {
+    return "User {" +
+        "name='" + name + '\'' +
+        ", email='" + email + '\'' +
+        ", orders=" + orders.toString() + "" +
+        ", admin=" + admin +
+        '}';
+  }
 }

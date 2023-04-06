@@ -1,4 +1,5 @@
 package product;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
@@ -8,11 +9,11 @@ import org.junit.jupiter.api.Test;
 public class ProductComparatorTests {
 
   @Test
-  public void ProductDecreasingMemoryIncreasingPriceComparator () {
+  public void ProductDecreasingMemoryIncreasingPriceComparator() {
 
-    Product product1 = new Product("Iphone 7", 1, 750,"256 gb","phone",2);
-    Product product2 = new Product("Iphone 8", 2, 850,"256 gb","phone",2);
-    Product product3 = new Product("Iphone 12", 3, 900,"512 gb","phone",2);
+    Product product1 = new Product("Iphone 7", 1, 750, "256 gb", "phone", 2);
+    Product product2 = new Product("Iphone 8", 2, 850, "256 gb", "phone", 2);
+    Product product3 = new Product("Iphone 12", 3, 900, "512 gb", "phone", 2);
 
     List<Product> actual = new ArrayList<>();
     actual.add(product1);
@@ -30,11 +31,11 @@ public class ProductComparatorTests {
   }
 
   @Test
-  public void ProductDecreasingPriceDecreasingMemoryComparator (){
+  public void ProductDecreasingPriceDecreasingMemoryComparator() {
 
-    Product product1 = new Product("Iphone 7", 1, 750,"256 gb","phone",2);
-    Product product2 = new Product("Iphone 8", 2, 900,"256 gb","phone",2);
-    Product product3 = new Product("Iphone 12", 3, 900,"512 gb","phone",2);
+    Product product1 = new Product("Iphone 7", 1, 750, "256 gb", "phone", 2);
+    Product product2 = new Product("Iphone 8", 2, 900, "256 gb", "phone", 2);
+    Product product3 = new Product("Iphone 12", 3, 900, "512 gb", "phone", 2);
 
     List<Product> actual = new ArrayList<>();
     actual.add(product1);
@@ -52,11 +53,11 @@ public class ProductComparatorTests {
   }
 
   @Test
-  public void ProductIncreasingPriceDecreasingMemoryComparator (){
+  public void ProductIncreasingPriceDecreasingMemoryComparator() {
 
-    Product product1 = new Product("Iphone 7", 1, 750,"128 gb","phone",2);
-    Product product2 = new Product("Iphone 8", 2, 750,"256 gb","phone",2);
-    Product product3 = new Product("Iphone 12", 3, 900,"512 gb","phone",2);
+    Product product1 = new Product("Iphone 7", 1, 750, "128 gb", "phone", 2);
+    Product product2 = new Product("Iphone 8", 2, 750, "256 gb", "phone", 2);
+    Product product3 = new Product("Iphone 12", 3, 900, "512 gb", "phone", 2);
 
     List<Product> actual = new ArrayList<>();
     actual.add(product3);
@@ -74,11 +75,11 @@ public class ProductComparatorTests {
   }
 
   @Test
-  public void ProductIncreasingTitleIncreasingPriceComparator (){
+  public void ProductIncreasingTitleIncreasingPriceComparator() {
 
-    Product product1 = new Product("Iphone 12", 1, 1000,"128 gb","phone",2);
-    Product product2 = new Product("Iphone 8", 2, 900,"256 gb","phone",2);
-    Product product3 = new Product("Iphone 8", 3, 950,"512 gb","phone",2);
+    Product product1 = new Product("Iphone 12", 1, 1000, "128 gb", "phone", 2);
+    Product product2 = new Product("Iphone 8", 2, 900, "256 gb", "phone", 2);
+    Product product3 = new Product("Iphone 8", 3, 950, "512 gb", "phone", 2);
 
     List<Product> actual = new ArrayList<>();
     actual.add(product3);

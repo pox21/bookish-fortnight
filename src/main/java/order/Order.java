@@ -1,7 +1,15 @@
 package order;
 
+import static utils.Auth.isLogin;
+import static utils.Auth.authUser;
+import static utils.ReadInput.readQuestionInput;
+import static utils.ReadInput.readStringInput;
+
 import cart.ProductCart;
 import chooseCategory.ChoseCategory;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import parser.GsonParser;
 import product.Category;
 import user.User;
@@ -14,95 +22,98 @@ import java.io.InputStreamReader;
 import java.util.List;
 
 public class Order {
-    // Оформление заказа
-    static UsersControl control = new UsersControl();
-    static List<Category> categories = GsonParser.parseCategories("src/main/resources/categories.json");
+
+  // Оформление заказа
+  static UsersControl control = new UsersControl();
+  static List<Category> categories = GsonParser.parseCategories(
+      "src/main/resources/categories.json");
 
 
-    public static String confirmInput(String str, int limit) {
-        String response = null;
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        while (response == null || response.isEmpty()) {
-            try {
-                System.out.print(str);
-                response = br.readLine().trim();
-                if (response.isEmpty()) {
-                    System.out.println(str + " - не должно пустым");
-                    response = br.readLine().trim();
-                } else if (limit != 0 && response.length() < limit) {
-                    str = "Значение не может быть меньше " + limit + " символов";
-                    response = null;
-                }
-            } catch (IOException e) {
-                System.out.print("Что-то пошло не так... " + str);
-            }
-        }
-        return response;
-    }
-
-    public static void confirmOrder(List<ProductCart> productCarts) {
-        System.out.println("Оформить заказ ?");
-        char isConfirm = confirmInput(" (y - 'да', n - 'нет'): ", 0).toLowerCase().charAt(0);
-        if (isConfirm != 'y') {
-            assert categories != null;
-            System.out.println("Вернуться на главную");
-            ChoseCategory.fill(categories);
+  public static void confirmOrder(List<ProductCart> productCarts) {
+    System.out.println("Оформить заказ ?");
+    char isConfirm = readQuestionInput("");
+    if (isConfirm != 'y') {
+      System.out.println("Вернуться на главную");
+      ChoseCategory.runShop();
+    } else {
+      Map<Integer, List<ProductCart>> order = new HashMap<>();
+      order.put((int) new Date().getTime(), productCarts);
+      char isHaveAccount = ' ';
+      if (!isLogin) {
+        isHaveAccount = readQuestionInput("У вас уже есть аккаунт?");
+        if (isHaveAccount == 'y' || isHaveAccount == 'у') {
+          auth(order);
         } else {
-            char isHaveAccount = confirmInput("У вас уже есть аккаунт? (y - 'да', n - 'нет'): ", 0).toLowerCase().charAt(0);
-            if (isHaveAccount != 'y') {
-                createAccount(productCarts);
-            } else {
-                auth(productCarts);
-            }
+          createAccount(order);
         }
+      } else {
+        User user = authUser;
+        addOrderToUser(user, order);
+      }
+    }
+  }
+
+  public static boolean createAccount(Map<Integer, List<ProductCart>> order) {
+    String name = "";
+    String email = "";
+    String password = "";
+
+    boolean isAddedUser = false;
+    while (!isAddedUser) {
+      name = readStringInput("Введите ваше имя: ", 0);
+      email = readStringInput("Введите ваш email: ", 6, true);
+      password = readStringInput("Введите ваш пароль: ", 4);
+      isAddedUser = control.addUser(new User(name, email, password));
     }
 
-    public static boolean createAccount(List<ProductCart> productCarts) {
-        String name = "";
-        String email = "";
-        String password = "";
+    User user = control.getUserByEmail(email);
+    isLogin = true;
+    authUser = user;
+    user.setOrders(order);
+    control.updateUserData(user);
+    System.out.println(
+        "Заказ оформлен ! Подробности отправлены на " + Colors.PURPLE.getColor() + email
+            + Colors.RESET.getColor()
+    );
 
-        boolean isAddedUser = false;
-        while (!isAddedUser) {
-            name = confirmInput("Введите ваше имя: ", 0);
-            email = confirmInput("Введите ваш email: ", 6);
-            password = confirmInput("Введите ваш пароль: ", 4);
-            isAddedUser = control.addUser(new User(name, email, password));
-        }
+    continueShopping();
 
-        User user = control.getUserByEmail(email);
-        user.setOrders(productCarts);
-        control.updateUserData(user);
-        System.out.println(
-                "Заказ оформлен ! Подробности отправлены на " + Colors.PURPLE.getColor() + email + Colors.RESET.getColor()
-        );
+    return false;
+  }
 
-        continueShopping();
+  public static void auth(Map<Integer, List<ProductCart>> order) {
+    String email = readStringInput("Введите ваш email: ", 6, true);
+    String password = readStringInput("Введите ваш пароль: ", 4);
+    do {
+      User user = control.login(email, password);
+      addOrderToUser(user, order);
+    } while (!control.authorization(email, password));
 
-        return false;
+  }
+
+  public static void addOrderToUser(User user, Map<Integer, List<ProductCart>> order) {
+    Map<Integer, List<ProductCart>> oUser = user.getOrders();
+    for (Integer key : order.keySet()) {
+      oUser.put(key, order.get(key));
     }
+    System.out.println(
+        "Рады, что вы снова нас посетили " + Colors.CYAN.getColor() + user.getName()
+            + Colors.RESET.getColor());
+    user.setOrders(oUser);
+    control.updateUserData(user);
+    continueShopping();
+  }
 
-    public static void auth(List<ProductCart> productCarts) {
-        String email = confirmInput("Введите ваш email: ", 6);
-        String password = confirmInput("Введите ваш пароль: ", 4);
-        do {
-            User user = control.login(email, password);
-            System.out.println("Рады, что вы снова нас посетили " + Colors.CYAN.getColor() + user.getName() + Colors.RESET.getColor());
-            user.setOrders(productCarts);
-            control.updateUserData(user);
-            continueShopping();
-        } while (!control.authorization(email, password));
-
+  public static void continueShopping() {
+    System.out.println("Спасибо за покупку");
+    char isContinueShopping = readQuestionInput("Хотите купить что-то ещё ?");
+    if (isContinueShopping == 'y' || isContinueShopping == 'у') {
+      ChoseCategory.runShop();
+    } else {
+      System.out.println("Очень жаль \uD83D\uDE1E");
+      System.out.println("Поздравляем вас с покупками, всего наилучшего!!!");
+      System.out.println("\uD83E\uDD73 \uD83E\uDD73 \uD83E\uDD73");
+      System.exit(0);
     }
-
-    public static void continueShopping () {
-        System.out.println("Спасибо за покупку");
-        char isContinueShopping = confirmInput("Хотите купить что-то ещё ? (y - да, n - нет): ", 0).toLowerCase().charAt(0);
-        if (isContinueShopping == 'n') {
-            System.out.println("Очень жаль \uD83D\uDE1E");
-            System.out.println("Поздравляем вас с покупками");
-        } else {
-            ChoseCategory.fill(categories);
-        }
-    }
+  }
 }

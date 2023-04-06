@@ -2,7 +2,7 @@
   {
     "title": "iphone 10",
     "id": 3679950092239,
-    "article" : 1001,
+    "article": 1001,
     "price": 500,
     "memory": "128GB",
     "category": "PHONE"
@@ -10,7 +10,7 @@
   {
     "title": "iphone 12",
     "id": 2679950092239,
-    "article" : 1002,
+    "article": 1002,
     "price": 753,
     "memory": "512GB",
     "category": "PHONE"
@@ -18,7 +18,7 @@
   {
     "title": "iphone 13",
     "id": 1950012239,
-    "article" : 1003,
+    "article": 1003,
     "price": 634,
     "memory": "256GB",
     "category": "PHONE"
@@ -26,7 +26,7 @@
   {
     "title": "Galaxy Tab 10",
     "id": 5009239,
-    "article" : 2001,
+    "article": 2001,
     "price": 413,
     "memory": "256GB",
     "category": "TABLET"
@@ -34,7 +34,7 @@
   {
     "title": "iPad 9",
     "id": 34092239,
-    "article" : 2002,
+    "article": 2002,
     "price": 578,
     "memory": "512GB",
     "category": "TABLET"
@@ -42,7 +42,7 @@
   {
     "title": "MacBook Pro M1",
     "id": 12350092239,
-    "article" : 3001,
+    "article": 3001,
     "price": 912,
     "memory": "1TB",
     "category": "COMPUTER"
@@ -50,7 +50,7 @@
   {
     "title": "MacBook Air M1",
     "id": 165550292234,
-    "article" : 3002,
+    "article": 3002,
     "price": 958,
     "memory": "512GB",
     "category": "COMPUTER"
@@ -58,7 +58,7 @@
   {
     "title": "MacBook Pro",
     "id": 7679950632432,
-    "article" : 3003,
+    "article": 3003,
     "price": 1456,
     "memory": "512GB",
     "category": "COMPUTER"
@@ -66,7 +66,7 @@
   {
     "title": "Asus ROG",
     "id": 8629250032286,
-    "article" : 3004,
+    "article": 3004,
     "price": 1679,
     "memory": "1TB",
     "category": "COMPUTER"
@@ -74,7 +74,7 @@
   {
     "title": "iphone 12 PRO",
     "id": 5629950792324,
-    "article" : 1004,
+    "article": 1004,
     "price": 1004,
     "memory": "256GB",
     "category": "PHONE"
@@ -82,7 +82,31 @@
   {
     "title": "iPad PRO m1",
     "id": 8349950084,
-    "article" : 2003,
+    "article": 2003,
+    "price": 1635,
+    "memory": "128GB",
+    "category": "TABLET"
+  },
+  {
+    "title": "Asus ROG",
+    "id": 862922250032286,
+    "article": 3005,
+    "price": 1679,
+    "memory": "1TB",
+    "category": "COMPUTER"
+  },
+  {
+    "title": "iphone 12 PRO",
+    "id": 562995079112324,
+    "article": 1005,
+    "price": 1004,
+    "memory": "256GB",
+    "category": "PHONE"
+  },
+  {
+    "title": "iPad PRO m1",
+    "id": 83499350084,
+    "article": 2005,
     "price": 1635,
     "memory": "128GB",
     "category": "TABLET"
